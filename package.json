@@ -1,0 +1,68 @@
+{
+  "name": "fe-sprint-component-library",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-feather": "^2.0.10",
+    "react-scripts": "5.0.1",
+    "styled-components": "^6.0.0-rc.1",
+    "token-transformer": "^0.0.32",
+    "web-vitals": "^2.1.4"
+  },
+  "scripts": {
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build",
+    "token": "token-transformer src/tokens/tokens.json src/tokens/global.json global --expandTypography=true --expandShadow=true --expandComposition=true --expandBorder=true",
+    "chromatic": "npx chromatic --project-token=6a567d6510c8"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ],
+    "overrides": [
+      {
+        "files": [
+          "**/*.stories.*"
+        ],
+        "rules": {
+          "import/no-anonymous-default-export": "off"
+        }
+      }
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@storybook/addon-essentials": "^7.0.5",
+    "@storybook/addon-interactions": "^7.0.5",
+    "@storybook/addon-links": "^7.0.5",
+    "@storybook/blocks": "^7.0.5",
+    "@storybook/preset-create-react-app": "^7.0.5",
+    "@storybook/react": "^7.0.5",
+    "@storybook/react-webpack5": "^7.0.5",
+    "@storybook/testing-library": "^0.0.14-next.2",
+    "babel-plugin-named-exports-order": "^0.0.2",
+    "chromatic": "^6.17.4",
+    "prop-types": "^15.8.1",
+    "storybook": "^7.0.5",
+    "webpack": "^5.79.0"
+  },
+  "readme": "ERROR: No README data found!",
+  "_id": "fe-sprint-component-library@0.1.0"
+}
