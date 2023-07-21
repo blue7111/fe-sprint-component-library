@@ -1,11 +1,11 @@
-import { useState } from 'react';
-import { ChevronButton } from './ChevronButton';
+import { useState } from "react";
+import { ChevronButton } from "./ChevronButton";
 
 export default {
-  title: 'Basic/Buttons/ChevronButton', // 스토리 분류 및 컴포넌트 이름
+  title: "Basic/Buttons/ChevronButton", // 스토리 분류 및 컴포넌트 이름
   component: ChevronButton, // 테스트할 컴포넌트
   parameters: {
-    backgrounds: { default: 'light' }, // 스토리의 배경색 설정
+    backgrounds: { default: "light" }, // 스토리의 배경색 설정
   },
 };
 
@@ -33,4 +33,5 @@ export const OnlyIcon = (args) => <Template {...args} />;
 export const WithLabel = (args) => <Template {...args} />;
 WithLabel.args = {
   // FILL_ME_IN
+  label: "Text",
 };

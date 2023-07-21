@@ -1,16 +1,16 @@
 /*** 2.TODO: ChevronButton의 스타일 및 스토리를 구현하세요. ***/
 
-import { styled } from 'styled-components';
-import { LabelText } from '../atoms/Typography';
-import { Icon } from '../atoms/Icon';
-import globalToken from '../../../tokens/global.json';
+import { styled } from "styled-components";
+import { LabelText } from "../atoms/Typography";
+import { Icon } from "../atoms/Icon";
+import globalToken from "../../../tokens/global.json";
 
 // 디자인 토큰에 지정된 값을 사용해 스타일을 지정합니다.
 const { Spacing, borderRadius, Primary, Gray, SecondaryDefault } = globalToken;
 
 export const ChevronButtonContainer = styled.button`
   /* 기본 스타일 제거*/
-  border: none;
+  border: 2px solid transparent;
   outline: none;
   background-color: transparent;
 
@@ -22,14 +22,29 @@ export const ChevronButtonContainer = styled.button`
 
   /* 커스텀 스타일 */
   /*** 2-1.TODO: Figma를 참고해 커스텀 스타일을 지정하세요. ***/
+  color: ${Primary.value};
+  border-radius: ${borderRadius[8].value}px;
+  padding: 8px 16px;
+
+  &:hover {
+    background-color: ${Gray[500].value};
+  }
+  &:focus {
+    background-color: transparent;
+    border-color: ${Gray[500].value};
+  }
 `;
 
 export const ChevronButton = ({ label, isExpanded, ...rest }) => {
   return (
     <ChevronButtonContainer {...rest}>
       {/*** 2-2.TODO: props로 label을 전달받았다면 LabelText로 label이 표시되도록 구현하세요. ***/}
+      {label && <LabelText children={label} />}
       <Icon
-        icon={/* 2-3.TODO: isExpanded에 따라 아이콘이 달라지도록 구현하세요. */ 'ChevronDown'}
+        icon={
+          /* 2-3.TODO: isExpanded에 따라 아이콘이 달라지도록 구현하세요. */
+          isExpanded ? "ChevronUp" : "ChevronDown"
+        }
         color={Gray[700].value}
       />
     </ChevronButtonContainer>

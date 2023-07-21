@@ -1,13 +1,22 @@
 /*** 1.TODO: Button의 스타일 및 스토리를 구현하세요. ***/
 
-import { css, styled } from 'styled-components';
-import globalToken from '../../../tokens/global.json';
-import { LabelText } from '../atoms/Typography';
-import { Icon } from '../atoms/Icon';
+import { css, styled } from "styled-components";
+import globalToken from "../../../tokens/global.json";
+import { LabelText } from "../atoms/Typography";
+import { Icon } from "../atoms/Icon";
 
 // 디자인 토큰에 지정된 값을 사용해 스타일을 지정합니다.
-const { Spacing, borderRadius, Accent, Primary, Gray, White, PrimaryFocus, SecondaryDefault } =
-  globalToken;
+const {
+  Spacing,
+  borderRadius,
+  Accent,
+  Primary,
+  Gray,
+  White,
+  PrimaryFocus,
+  SecondaryDefault,
+  SecondaryFocus,
+} = globalToken;
 
 const ButtonContainer = styled.button`
   /* 기본 스타일 제거*/
@@ -52,13 +61,31 @@ const ButtonContainer = styled.button`
           }
         `
       : /*** 1-1.TODO: Figma를 참고해 Secondary 버튼의 스타일을 지정하세요. ***/
-        css``}
+      props.secondary
+      ? css`
+          border-color: ${SecondaryDefault.color.value};
+          background-color: ${White.value};
+          color: ${Gray[700].value};
+
+          &:hover {
+            border-color: ${Gray[500].value};
+            background-color: ${Gray[500].value};
+            color: ${Primary.value};
+          }
+          &:active {
+            border-color: ${SecondaryFocus.color.value};
+            background-color: ${Gray[500].value};
+            color: ${Primary.value};
+          }
+        `
+      : null}
 `;
 
 export const Button = ({ primary, label, icon, ...rest }) => {
   return (
     <ButtonContainer primary={primary} gap={Spacing[8].value} {...rest}>
       {/*** 1-2.TODO: props로 icon을 전달받았다면 해당 Icon 컴포넌트가 버튼에 표시되도록 구현하세요. ***/}
+      {icon && <Icon icon={icon} />}
       <LabelText children={label} />
     </ButtonContainer>
   );
